@@ -10,10 +10,10 @@ df = pd.read_csv('https://raw.githubusercontent.com/araj2/customer-database/mast
 
 df = df.iloc[:,3:]
 
-df = df[df['Length of Membership'] > 3]
+df = df[df['Length of Membership'] > 1]
 
 joined_path = Path.joinpath(Path.cwd() / 'data')
 
 
-
+df.drop(columns=['Avg. Session Length'],inplace=True)
 df.to_csv(joined_path/'customer.csv',index=False)
